@@ -23,8 +23,8 @@ int pos; // Posição Servo
 
 // Variaveis globais
 
-//float cmMsec;
-//long microsec;
+float cmMsec;
+long microsec;
  
 //Inicializa o sensor ( Ultrassom ) nos pinos definidos acima
 Ultrasonic ultrasonic(pino_trigger, pino_echo);
@@ -47,7 +47,7 @@ void retornar()
   //TODO: implementar funcao de retorno
 }
 
-void colisao(float cmMsec, long microsec){
+void colisao(){
   while(cmMsec <= 10){
     digitalWrite( 8, HIGH );
     microsec = ultrasonic.timing();
@@ -61,8 +61,7 @@ void colisao(float cmMsec, long microsec){
 } //fecha colisao()
  
 void loop(){
-  float cmMsec;
-  long microsec = ultrasonic.timing();
+  microsec = ultrasonic.timing();
   cmMsec = ultrasonic.convert(microsec, Ultrasonic::CM);
   Serial.print("Distancia em cm: ");
   Serial.println(cmMsec);
@@ -71,24 +70,22 @@ void loop(){
   for(pos = 50; pos < 150; pos = pos + 50){ // O servo inicia na posição 50 e soma 50 até atingir 150; a cada soma ele realiza uma leitura no sensor  
     s.write(pos); // escreve a posição para o servo usando a variável "pos"
     delay(500);
-    float cmMsec;
-    long microsec = ultrasonic.timing();
+    microsec = ultrasonic.timing();
     cmMsec = ultrasonic.convert(microsec, Ultrasonic::CM);
     Serial.print("Distancia em cm: ");
     Serial.println(cmMsec);
     delay(500);
-    colisao(cmMsec, microsec);
+    colisao();
   } //fechamento for direita
 
   for(pos = 150; pos >= 50; pos = pos - 50){ //O servo inicia na posição 150 e subtrai 50 até atingir 50; a cada subtração ele realiza uma leitura no sensor
     s.write(pos); // escreve a posição para o servo usando a variável "pos"
     delay(500);
-    float cmMsec;
-    long microsec = ultrasonic.timing();
+    microsec = ultrasonic.timing();
     cmMsec = ultrasonic.convert(microsec, Ultrasonic::CM);
     Serial.print("Distancia em cm: ");
     Serial.println(cmMsec);
     delay(500);
-    colisao(cmMsec, microsec);
+    colisao();
   } //fechamento for esquerda
 }
