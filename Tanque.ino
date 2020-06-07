@@ -61,13 +61,7 @@ void colisao(){
 } //fecha colisao()
  
 void loop(){
-  microsec = ultrasonic.timing();
-  cmMsec = ultrasonic.convert(microsec, Ultrasonic::CM);
-  Serial.print("Distancia em cm: ");
-  Serial.println(cmMsec);
-  delay(1000);
-  
-  for(pos = 50; pos < 150; pos = pos + 50){ // O servo inicia na posição 50 e soma 50 até atingir 150; a cada soma ele realiza uma leitura no sensor  
+    for(pos = 50; pos <= 150; pos = pos + 50){ // O servo inicia na posição 50 e soma 50 até atingir 150; a cada soma ele realiza uma leitura no sensor  
     s.write(pos); // escreve a posição para o servo usando a variável "pos"
     delay(500);
     microsec = ultrasonic.timing();
