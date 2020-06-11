@@ -1,8 +1,8 @@
-/* TCC ELETRÔNICA 2020 A.G.R 
+/* TCC ELETRÔNICA 2020 Black Turtle
  * Guilherme Gil
- * Luan
- * Victor
- * Raphael
+ * Luan Bassi
+ * Victor Hugo
+ * Rafael Mota
  */
 
 //Sensor ultrassom funciona com 5v
