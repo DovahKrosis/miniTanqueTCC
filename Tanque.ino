@@ -18,6 +18,10 @@
 // Porta Digital 5 PWM ( Servo )
 #define SERVO 5 
 
+//Definição das saídas
+#define TORRETA 7 
+#define LED 8 
+
 Servo s; // Variável Servo
 int pos; // Posição Servo
 
@@ -32,7 +36,8 @@ Ultrasonic ultrasonic(pino_trigger, pino_echo);
 //==================================================================================================
 
 void setup(){
-  pinMode( 8, OUTPUT );
+  pinMode( LED, OUTPUT );
+  pinMode( TORRETA, OUTPUT );
   s.attach(SERVO);
   Serial.begin(9600);
   s.write(0); // Inicia o servo motor na posição zero
@@ -49,7 +54,8 @@ void retornar()
 
 void colisao(){
   while(cmMsec <= 10){
-    digitalWrite( 8, HIGH );
+    digitalWrite( LED, HIGH );
+    digitalWrite( TORRETA, HIGH );
     microsec = ultrasonic.timing();
     cmMsec = ultrasonic.convert(microsec, Ultrasonic::CM);
     Serial.print("Distancia em cm: ");
@@ -57,7 +63,8 @@ void colisao(){
     delay(1000);
     retornar();
   } //fecha while
-  digitalWrite( 8, LOW );
+  digitalWrite( LED, LOW );
+  digitalWrite( TORRETA, LOW );
 } //fecha colisao()
  
 void loop(){
