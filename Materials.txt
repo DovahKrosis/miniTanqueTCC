@@ -1,0 +1,15 @@
+V.11062020	_List of materials what has been used for the project_ 
+
+- 3 Tower Pro Servo 9g
+
+- HC-SR04 Ultrassonic sensor
+
+-Atmega 328p Atmel (Arduino UNO chip)
+
+-LM7805 Voltage Regulator 5V
+
+-Oscilator crystal 12MHz
+
+-DC Motor 5V
+
+-Resistors and capacitors
