@@ -79,11 +79,11 @@ void sensor_moviment(int position){
 }
  
 void loop(){
-  for(pos = 50; pos <= 150; pos = pos + 50){ // O servo inicia na posição 50 e soma 50 até atingir 150; a cada soma ele realiza uma leitura no sensor  
+  for(pos = 50; pos <= 150; pos +=  50){ // O servo inicia na posição 50 e soma 50 até atingir 150; a cada soma ele realiza uma leitura no sensor  
     sensor_moviment(pos);
   } //fechamento for direita
 
-  for(pos = 150; pos >= 50; pos = pos - 50){ //O servo inicia na posição 150 e subtrai 50 até atingir 50; a cada subtração ele realiza uma leitura no sensor
+  for(pos = 150; pos >= 50; pos -= 50){ //O servo inicia na posição 150 e subtrai 50 até atingir 50; a cada subtração ele realiza uma leitura no sensor
     sensor_moviment(pos);
   } //fechamento for esquerda
 }
