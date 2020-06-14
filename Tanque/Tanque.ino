@@ -53,7 +53,7 @@ void retornar()
 }
 
 void colisao(){
-  while(cmMsec <= 10){
+  while(cmMsec <= 20){
     digitalWrite( LED, HIGH );
     digitalWrite( TORRETA, HIGH );
     microsec = ultrasonic.timing();
